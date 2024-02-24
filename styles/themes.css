@@ -1,0 +1,84 @@
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+Придерживайтесь такого именования классов:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
+*/
+
+
+
+:root.theme-light{
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --border-color:  #000000;
+    --HTML-opacity: 1.5;
+    --CSS-opacity: 1.5;
+    --desigions-opacity: 0.9;
+    --care-opacity: 0.5;
+    --support-opacity: 0.5;
+    --lifes-style-opacity: 1;
+    --experience-opacity:1;
+    --color-text-shadow: #ffff;
+    --background-color-strip-color: #d3d3d3; 
+    --background-gradient-start-color: #e7e7e7; 
+    --background-gradient-end-color: #1a1a1a; 
+    --page-font-weight:400;
+    --headline-font-weight:700;
+    --text-color-transition: #ffff ;
+    --icon-contour-color: black;
+    --icon-mainBody-color:black;
+    --main-body-background-color:var(--color-white, #ffff);
+   
+}
+
+:root.theme-dark {
+    --color-bg: #000000;
+    --color-text: #00CC14;
+    --border-color:  #00CC14;
+    --HTML-opacity: 0.5;
+    --CSS-opacity: 0.5;
+    --desigions-opacity: 0.5;
+    --care-opacity: 1;
+    --support-opacity: 0.4;
+    --lifes-style-opacity: 0.5;
+    --experience-opacity: 0.8;
+    --color-text-shadow: #0000;
+    --background-gradient-end-color: #004306;
+    --background-gradient-start-color: #007f0c; 
+    --background-color-strip-color: #000; 
+    --page-font-weight:465;
+    --headline-font-weight:785;
+    --bg-transition: #00CC14;
+    --text-color-transition: #00cc14;
+    --icon-contour-color: #00CC14;
+    --icon-mainBody-color:#00CC14;
+    --main-body-background-color:var(--color-black, #000000);
+}
+
+
+
+@media(prefers-color-scheme: dark) {
+    :root{
+        --color-bg: #000000;
+        --color-text: #00CC14;
+        --color-text: #00CC14;
+        --HTML-opacity: 0.5;
+        --CSS-opacity: 0.5;
+        --desigions-opacity: 0.5;
+        --care-opacity: 1;
+        --support-opacity: 0.4;
+        --lifes-style-opacity: 0.5;
+        --experience-opacity: 0.8;
+        --color-text-shadow: #0000;
+        --background-gradient-end-color: #004306; 
+        --background-gradient-start-color: #007f0c; 
+        --background-color-strip-color: #000; 
+        --page-font-weight:465;
+        --headline-font-weight:785;
+        --bg-transition: #00CC14;
+        --text-color-transition:#00CC14;
+        --icon-contour-color: #00CC14;
+        --icon-mainBody-color:#00CC14;
+        --main-body-background-color:var(--color-black, #000000);
+    }
+}
