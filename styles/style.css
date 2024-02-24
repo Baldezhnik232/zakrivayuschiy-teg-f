@@ -1,0 +1,354 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  padding-block-start: 100px;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  margin: 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: var(--color-bg, #000000);
+  font-family: "Press Start 2P", sans-serif;
+  background-image: repeating-linear-gradient(to right, var(--background-color-strip-color, #000), var(--background-color-strip-color, #000) 2px, transparent 2px, transparent 4px),
+      repeating-linear-gradient(to bottom, var(--background-color-strip-color, #000), var(--background-color-strip-color, #000) 2px, transparent 2px, transparent 4px),
+      linear-gradient(to bottom, var(--background-gradient-start-color, #007f0c) 0.01%, var(--background-gradient-end-color, #004306));
+  color: var(--color-text, #00cc14);
+  font-variation-settings: "wght" var(--page-font-weight, 465);
+}
+
+.header {
+  display: grid;
+  justify-items: center;
+  text-transform: uppercase;
+}
+.block {
+  border: 2px solid var(--border-color, #00cc14);
+  max-inline-size: 700px;
+  margin-inline: auto;
+  background-color: var(--color-bg, #000000);
+}
+.page_header {
+  margin-block-end: 100px;
+}
+.header_tittle {
+  margin-block-start: 136px;
+  margin-block-end: 20px;
+}
+.page_span {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+.header_min-tittle {
+  font-weight: 400;
+  font-size: 23px;
+  margin-block-end: 25px;
+}
+
+.theme-menu__list {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  font-size: 14px;
+  padding-inline-start: 20px;
+  padding-block-end: 25px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  padding: 0;
+  transition: opacity 0.3s ease;
+  outline: none;
+}
+.theme-menu__button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.theme-menu__button::after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled:before {
+  content: "▶";
+  position: absolute;
+  display: inline-block;
+  left: -20px;
+  top: 0%;
+  margin-right: 5px;
+  animation: moveArrow 0.5s ease-in-out infinite alternate;
+  font-family: "Press Start 2P", sans-serif;
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.main {
+  display: grid;
+  justify-items: center;
+  gap: 50px;
+  margin-block-end: 103px;
+}
+.main__block-list {
+  display: grid;
+  gap: 52px;
+}
+
+.header__card {
+  padding: 3px 10px 3px 10px;
+  border-block-end: 2px solid var(--border-color, #00cc14);
+}
+.header__min-card {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-variation-settings: "wght" var(--headline-font-weight, 785);
+  padding-inline-start: 3px;
+}
+.label {
+  position: absolute;
+  inset-block-start: 27px;
+  inset-inline-end: 23px;
+  font-size: 14px;
+  opacity: var(--label-opacity, 0.5);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 2px var(--color-text-shadow, #000000);
+}
+
+.card_images {
+  width: 100%;
+}
+.header__img {
+  position: relative;
+}
+.card__content {
+  display: grid;
+  gap: 27px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  border-block-start: 2px solid var(--border-color, #00cc14);
+}
+.paragraph {
+  margin: 0;
+  padding: 25px 25px 0 25px;
+}
+.paragraph:last-child {
+  margin: 0;
+  padding: 0 25px 0 25px;
+}
+
+.footer__card {
+  display: flex;
+  justify-content: end;
+  padding: 25px 25px 25px 0;
+}
+
+.card__icon-button {
+  cursor: pointer;
+  background: var(---color-bg);
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  padding: 0;
+}
+.card__icon-button:focus {
+  outline: none;
+}
+.card__icon-button:focus-visible {
+  border-color: var(--border-color);
+}
+.button {
+  position: relative;
+  border: 2px solid var(--border-color, #00cc14);
+  background: var(--color-bg);
+  min-width: 130px;
+  min-height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.button__text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  font-size: 14px;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-text);
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+  transform-origin: left;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button__text,
+.button__text-save,
+.floppy {
+  color: var(--text-color-transition);
+  mix-blend-mode: difference;
+}
+
+.card__like-button:hover {
+  cursor: pointer;
+}
+
+.card__like-button:focus {
+  box-shadow: 2px 2px 2px var(--bg-transition);
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.like-icon {
+  block-size: 36px;
+  inline-size: 39px;
+}
+.save {
+  display: flex;
+  position: relative;
+  padding: 15px 20px;
+  background-color: var(--color-bg, #000000);
+  border: 2px solid var(--border-color, #00cc14);
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  outline: none;
+  background-image: linear-gradient(to right, var(--bg-transition) 50%, var(--color-bg) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: var(--color-text);
+  transition: background-pisotion 0.5s ease, color 0.5s ease;
+}
+.save:hover {
+  color: var(--text-color-transition);
+  background-position: -100% 0;
+  animation: buttonBgSlide 0.3s forwards;
+  cursor: pointer;
+}
+.save:focus {
+  box-shadow: 2px 2px 2px #000000;
+}
+
+.close-button {
+  background-color: var(--color-bg, #000000);
+  border: 2px solid var(--border-color, #00cc14);
+  inline-size: 100%;
+  font-size: 14px;
+}
+.module {
+  padding: 25px 30px;
+  max-inline-size: 355px;
+  background-color: var(--color-bg, #000000);
+  border: 2px solid var(--border-color, #00cc14);
+  color: var(--color-text, #00cc14);
+  line-height: 1.5;
+  font-family: "Press Start 2P", sans-serif;
+  overflow-x: hidden;
+  text-transform: uppercase;
+}
+.floppy {
+  inline-size: 22px;
+  block-size: 22px;
+  flex-shrink: 0;
+}
+.module::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(7px);
+}
+.module-floppy {
+  inline-size: 39px;
+  block-size: 39px;
+  flex-shrink: 0;
+}
+.dialog_text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.module[open] {
+  display: grid;
+  gap: 30px;
+}
+
+@media (max-width: 375px) {
+ 
+  .header_tittle {
+      margin-block-start: 120px;
+  }
+  .header_min-tittle {
+      font-size: 14px;
+  }
+
+  .label {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+
+  .save {
+      flex-direction: column;
+      padding: 14px 20px;
+  }
+
+  .floppy {
+      inline-size: 30px;
+      block-size: 36px;
+      flex-shrink: 0;
+  }
+  .module {
+      padding: 30px 42px;
+      max-inline-size: 341px;
+  }
+
+  .header__card {
+      padding: 3.5px 10px 5.5px 10px;
+  }
+}
