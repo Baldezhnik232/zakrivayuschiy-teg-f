@@ -1,0 +1,471 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  padding-block-start: 100px;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  margin: 0;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: var(--color-bg, #000000);
+  font-family: "Press Start 2P";
+  background-image: repeating-linear-gradient(to right, var(--background-color-strip-color, #000), var(--background-color-strip-color, #000) 2px, transparent 2px, transparent 4px),
+      repeating-linear-gradient(to bottom, var(--background-color-strip-color, #000), var(--background-color-strip-color, #000) 2px, transparent 2px, transparent 4px),
+      linear-gradient(to bottom, var(--background-gradient-start-color, #007f0c) 0.01%, var(--background-gradient-end-color, #004306));
+  color: var(--color-text, #00cc14);
+  font-variation-settings: "wght" var(--page-font-weight, 465);
+}
+
+.header {
+  display: grid;
+  justify-items: center;
+  text-transform: uppercase;
+}
+.block {
+  border: 2px solid var(--border-color, #00cc14);
+  max-inline-size: 696px;
+  margin-inline: auto;
+  background-color: var(--color-bg, #000000);
+}
+.page_header {
+  margin-block-end: 100px;
+}
+.header_tittle {
+  margin-block-start: 136px;
+  margin-block-end: 20px;
+}
+.page_span {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+.header_min-tittle {
+  font-weight: 400;
+  font-size: 23px;
+  margin-block-end: 25px;
+}
+
+.theme-menu__list {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  font-size: 14px;
+  padding-inline-start: 20px;
+  padding-block-end: 25px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  padding: 0;
+  transition: opacity 0.3s ease;
+  outline: none;
+}
+.theme-menu__button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.theme-menu__button::after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+  opacity: 0.6;
+}
+.theme-menu__button:disabled:before {
+  content: "▶";
+  position: absolute;
+  display: inline-block;
+  inset-inline-start: -20px;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  animation: moveArrow 0.5s ease-in-out infinite alternate;
+  font-family: "Press Start 2P", sans-serif;
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.main {
+  display: grid;
+  justify-items: center;
+  gap: 50px;
+  margin-block-end: 103px;
+}
+.main__block-list {
+  display: grid;
+  gap: 55px;
+}
+
+.card_first {
+  border: 2px solid var(--border-color, #00cc14);
+  max-inline-size: 696px;
+  margin-inline: auto;
+}
+.header__card {
+  padding: 4px 0 4px 7px;
+  border: 1px solid var(--border-color, #00cc14);
+}
+.header__min-card {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-variation-settings: "wght" var(--headline-font-weight, 785);
+}
+.HTMl {
+  position: absolute;
+  inset-block-start: 27px;
+  inset-inline-end: 23px;
+  font-size: 14px;
+  opacity: var(--HTML-opacity, 0.5);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 2px var(--color-text-shadow, #000000);
+}
+.CSS {
+  position: absolute;
+  inset-block-start: 27px;
+  inset-inline-end: 23px;
+  font-size: 14px;
+  opacity: var(--CSS-opacity, 0.5);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 2px var(--color-text-shadow, #000000);
+}
+.desigions {
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  font-size: 14px;
+  word-spacing: 2px;
+  opacity: var(--desigions-opacity, 0.5);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 2px var(--color-text-shadow, #000000);
+}
+.care {
+  position: absolute;
+  inset-block-start: 23px;
+  inset-inline-end: 24px;
+  font-size: 14px;
+  opacity: var(--care-opacity, 1);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 2px var(--color-text-shadow, #000000);
+}
+.support {
+  position: absolute;
+  inset-block-start: 23px;
+  inset-inline-end: 24px;
+  font-size: 14px;
+  opacity: var(--support-opacity, 0.4);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 2px var(--color-text-shadow, #000000);
+}
+.lifes-style {
+  position: absolute;
+  inset-block-start: 23px;
+  inset-inline-end: 24px;
+  font-size: 14px;
+  opacity: var(--lifes-style-opacity, 0.5);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 3px var(--color-text-shadow, #000000);
+}
+.experience {
+  position: absolute;
+  color: #fff;
+  inset-block-start: 23px;
+  inset-inline-end: 24px;
+  font-size: 14px;
+  opacity: var(--experience-opacity, 0.8);
+  z-index: 1;
+  color: var(--color-text, #00cc14);
+  text-shadow: 0 0 3px var(--color-text-shadow, #000000);
+}
+.card_images {
+  width: 100%;
+}
+.header__img {
+  position: relative;
+}
+.card__content {
+  display: grid;
+  gap: 27px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.paragraph {
+  margin: 0;
+  padding: 30px 25px 0 24px;
+  letter-spacing: 0px;
+  word-spacing: 2px;
+  letter-spacing: 0.1px;
+}
+.min-paragraph {
+  margin: 0;
+  padding: 0 25px 0 25px;
+  word-spacing: 2px;
+}
+
+.footer__card {
+  display: flex;
+  gap: 5px;
+  justify-content: end;
+  padding: 25px 25px 25px 0;
+}
+.card__icon-button {
+  cursor: pointer;
+  border: none;
+  background: var(---color-bg);
+  pointer-events: all;
+}
+.card__like-button {
+  position: relative;
+  padding: 8px 38px;
+  border: 2px solid var(--border-color, #00cc14);
+  background-color: var(--color-bg, #000000);
+  background-image: linear-gradient(to right, var(--bg-transition) 50%, var(--color-bg) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: var(--color-text);
+  transition: background-pisotion 0.5s ease, color 0.5s ease;
+  outline: none;
+}
+.card__like-button:hover {
+  color: var(--text-color-transition);
+  background-position: -100% 0;
+  animation: buttonBgSlide 0.3s forwards;
+  cursor: pointer;
+}
+.card__like-button:focus {
+  box-shadow: 2px 2px 2px #000000;
+}
+.like-icon:hover .core,
+.like-icon:hover .main-body {
+  fill: var(--icon-mainBody-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon:active .core,
+.like-icon:active .main-body {
+  fill: var(--icon-mainBody-color);
+}
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body {
+  fill: red;
+  transition: fill 0.3s ease;
+}
+.like-icon.is-liked .contour {
+  fill: red;
+  transition: fill 0.6s ease;
+}
+.heart {
+  transform-origin: center;
+}
+.like-icon.is-liked .heart {
+  animation: scaleHeart 0.3s ease-in-out forwards;
+}
+.like-icon.is-liked .sparks {
+  fill: #ff0000;
+  animation: sparksAnimation 0.3s 0.3s ease-in-out forwards;
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+.button_text {
+  font-size: 14px;
+}
+.like {
+  font-size: 14px;
+}
+.like:hover {
+  position: relative;
+  z-index: 1;
+}
+.like-icon {
+  block-size: 36px;
+  inline-size: 39px;
+}
+.save {
+  display: flex;
+  position: relative;
+  padding: 15px 20px;
+  background-color: var(--color-bg, #000000);
+  border: 2px solid var(--border-color, #00cc14);
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  outline: none;
+  background-image: linear-gradient(to right, var(--bg-transition) 50%, var(--color-bg) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: var(--color-text);
+  transition: background-pisotion 0.5s ease, color 0.5s ease;
+}
+.save:hover {
+  color: var(--text-color-transition);
+  background-position: -100% 0;
+  animation: buttonBgSlide 0.3s forwards;
+  cursor: pointer;
+}
+.save:focus {
+  box-shadow: 2px 2px 2px #000000;
+}
+
+.close-button {
+  padding: 12.5px 132.5px;
+  background-color: #ffffff;
+  margin-block-start: 30px;
+  background-color: var(--color-bg, #000000);
+  border: 2px solid var(--border-color, #00cc14);
+}
+.dialog {
+  text-transform: uppercase;
+  padding: 20px 30px;
+  max-inline-size: 356px;
+  line-height: 1.5;
+  position: fixed;
+  bottom: 14%;
+  left: 0%;
+  z-index: 1000;
+  background-color: var(--color-bg, #000000);
+  border: 2px solid var(--border-color, #00cc14);
+  color: var(--color-text, #00cc14);
+}
+.floppy {
+  inline-size: 22px;
+  block-size: 22px;
+  flex-shrink: 0;
+}
+.dialog_text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(7px);
+}
+.button_text-ok {
+  font-size: 14px;
+}
+
+@media (max-width: 375px) {
+  .header_tittle {
+      margin-block-start: 120px;
+      margin-block-end: 20px;
+  }
+  .header_min-tittle {
+      font-size: 14px;
+  }
+  .main__block-list {
+      gap: 49px;
+  }
+
+  .card_first {
+      border: 2px solid #000000;
+      max-inline-size: 696px;
+      margin-inline: auto;
+  }
+  .header__min-card {
+      word-spacing: 1px;
+  }
+  .HTMl {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+  .CSS {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+  .desigions {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+  .care {
+      inset-block-start: 27px;
+      inset-inline-end: 10px;
+  }
+  .support {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+  .lifes-style {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+  .experience {
+      inset-block-start: 25px;
+      inset-inline-end: 11px;
+  }
+  .paragraph {
+      word-spacing: 4px;
+  }
+
+  .card__like-button {
+      padding: 8px 30px;
+  }
+
+  .like {
+      font-size: 14px;
+  }
+  .save {
+      flex-direction: column;
+      padding: 14px 20px;
+      gap: 0;
+  }
+
+  .floppy {
+      inline-size: 30px;
+      block-size: 36px;
+      flex-shrink: 0;
+  }
+  .dialog {
+      text-transform: uppercase;
+      padding: 28px 40px 28px 40px;
+      max-inline-size: 341px;
+      line-height: 1.5;
+      position: fixed;
+      bottom: 60%;
+      z-index: 1000;
+  }
+  .close-button {
+      padding: 11px 112px 8px;
+  }
+  .button_text-min {
+      font-size: 14px;
+  }
+}

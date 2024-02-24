@@ -1,0 +1,23 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root{
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --border-color:  #000000;
+    --HTML-opacity: 1.5;
+    --CSS-opacity: 1.5;
+    --desigions-opacity: 0.9;
+    --care-opacity: 0.5;
+    --support-opacity: 0.5;
+    --lifes-style-opacity: 1;
+    --experience-opacity:1;
+    --color-text-shadow: #ffff;
+    --background-color-strip-color: #d3d3d3; 
+    --background-gradient-start-color: #e7e7e7; 
+    --background-gradient-end-color: #1a1a1a; 
+    --page-font-weight:400;
+    --headline-font-weight:700;
+    --bg-transition: #000000;
+    --text-color-transition: white;
+    --icon-contour-color: black;
+    --icon-mainBody-color:black;
+}
