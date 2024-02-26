@@ -1,0 +1,33 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root{
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --border-color:  #000000;
+    --label-opacity: 1.5;
+    --color-text-shadow: #ffff;
+    --background-color-strip-color: #d3d3d3; 
+    --background-gradient-start-color: #e7e7e7; 
+    --background-gradient-end-color: #1a1a1a; 
+    --page-font-weight:400;
+    --headline-font-weight:700;
+    --bg-transition: #000000;
+    --text-color-transition: white;
+    --icon-contour-color: black;
+    --icon-mainBody-color:black;
+    --main-font-family:'Press Start 2P', sans-serif;
+    --accent-font-family: 'Inter', sans-serif;
+
+
+
+    --color-black: #000000;
+    --color-white: #ffffff;
+   
+
+
+
+    
+    --contour-color: var(--color-text, #000000);
+    --icon-sparks-color: #ff0000;
+    --main-body-background-color:var(--color-black, #000000);
+
+}
